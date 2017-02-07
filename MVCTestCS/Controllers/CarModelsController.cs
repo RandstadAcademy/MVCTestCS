@@ -10,6 +10,7 @@ using MVCTestCS.DataLayer;
 
 namespace MVCTestCS.Controllers
 {
+    
     public class CarModelsController : Controller
     {
         private CarDealerEntities db = new CarDealerEntities();
@@ -17,6 +18,9 @@ namespace MVCTestCS.Controllers
         // GET: CarModels
         public ActionResult Index()
         {
+
+            ViewBag.CanDelete = false;
+
             var carModels = db.CarModels.Include(c => c.Manifactures);
             return View(carModels.ToList());
         }
@@ -37,6 +41,7 @@ namespace MVCTestCS.Controllers
         }
 
         // GET: CarModels/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.ManifactureId = new SelectList(db.Manifactures, "Id", "Name");
@@ -48,6 +53,7 @@ namespace MVCTestCS.Controllers
         // Per ulteriori dettagli, vedere http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "Id,ModelName,Color,Year,CarDoor,Km,IsUsed,ManifactureId")] CarModels carModels)
         {
             if (ModelState.IsValid)
@@ -62,6 +68,7 @@ namespace MVCTestCS.Controllers
         }
 
         // GET: CarModels/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +89,7 @@ namespace MVCTestCS.Controllers
         // Per ulteriori dettagli, vedere http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "Id,ModelName,Color,Year,CarDoor,Km,IsUsed,ManifactureId")] CarModels carModels)
         {
             if (ModelState.IsValid)
@@ -95,6 +103,7 @@ namespace MVCTestCS.Controllers
         }
 
         // GET: CarModels/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -110,6 +119,7 @@ namespace MVCTestCS.Controllers
         }
 
         // POST: CarModels/Delete/5
+        [Authorize(Roles ="Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
