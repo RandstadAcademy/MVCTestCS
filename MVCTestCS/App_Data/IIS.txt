@@ -1,0 +1,5 @@
+%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_regiis.exe -ir
+
+appcmd set apppool /apppool.name: [App Pool Name] /managedRuntimeVersion:v4.5
+
+%windir%\System32\inetsrv

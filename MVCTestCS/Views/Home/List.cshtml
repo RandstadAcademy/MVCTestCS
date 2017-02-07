@@ -1,0 +1,28 @@
+﻿@model List<MVCTestCS.Models.Vehicle>
+
+@{
+    
+    /*Layout = null;*/
+
+}
+
+@foreach (MVCTestCS.Models.Vehicle v in Model)
+{
+
+    @Html.ActionLink("Dettagli", "Details", "Home", new { id=v.id , pippo = 123, pluto = 456},null);
+
+    <div>@v.Name</div>
+    <div>@v.Type</div>
+    <div>@v.id</div>
+}
+
+
+
+@section scripts
+{
+        <script type="text/javascript">
+            alert("wiiii");
+
+        </script>
+    
+}
