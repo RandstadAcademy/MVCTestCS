@@ -198,6 +198,7 @@
     <Compile Include="Areas\BackEnd\BackEndAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarModelsController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\DashBoardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -213,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\IIS.txt" />
+    <Content Include="Client.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -298,6 +300,7 @@
     <Folder Include="Areas\BackEnd\Controllers\" />
     <Folder Include="Areas\BackEnd\Models\" />
     <Folder Include="Areas\BackEnd\Views\Shared\" />
+    <Folder Include="Views\Client\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

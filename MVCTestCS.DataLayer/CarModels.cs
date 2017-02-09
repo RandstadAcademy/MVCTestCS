@@ -11,7 +11,8 @@ namespace MVCTestCS.DataLayer
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Script.Serialization;
+
     public partial class CarModels
     {
         public int Id { get; set; }
@@ -22,7 +23,8 @@ namespace MVCTestCS.DataLayer
         public Nullable<int> Km { get; set; }
         public bool IsUsed { get; set; }
         public int ManifactureId { get; set; }
-    
+
+        [ScriptIgnore(ApplyToOverrides = true)]
         public virtual Manifactures Manifactures { get; set; }
     }
 }
