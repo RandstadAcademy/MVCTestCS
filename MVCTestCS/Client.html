@@ -7,13 +7,20 @@
 
     <script type="text/javascript">
 
-        $.ajax("/Client/GetVehiclesList",
+        
+        function loadList() {
+
+            $.ajax("/Client/GetVehiclesList",
             {
                 success: function (data) {
                     alert(data[0].ModelName);
-                }
+                },
+                cache: true
 
             });
+
+        }
+
 
 
         //var object = $.parseJSON($.getJSON("/Client/GetVehicleList"));
@@ -23,6 +30,7 @@
 
 </head>
 <body>
+    <a href="#" onclick="loadList()">Effettua la chiamata</a>
 
 </body>
 </html>
